@@ -199,7 +199,7 @@ EOL;
                     'rich_text' => [
                         [
                             'type' => 'text',
-                            'text' => ['content' => $vv],
+                            'text' => ['content' => $v],
                         ],
                     ],
                 ],
