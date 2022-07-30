@@ -1,0 +1,24 @@
+{
+    "name": "linyows/mailslot",
+    "description": "Mailslot stores messages in database on Notion for email notifications.",
+    "type": "library",
+    "require-dev": {
+        "mockery/mockery": "^1.5",
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit ./tests"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mailslot\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "linyows",
+            "email": "linyows@gmail.com"
+        }
+    ]
+}
