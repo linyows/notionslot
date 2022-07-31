@@ -1,10 +1,10 @@
 Notionslot
 ==
 
+<a href="https://github.com/linyows/mailslot/actions/workflows/build.yml"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/linyows/mailslot/Build?style=for-the-badge"></a>
+
 Notionslot stores messages in database on Notion for email notifications.
 It is supposed to be used in the contact form of web hosting.
-
-<a href="https://github.com/linyows/mailslot/actions/workflows/build.yml"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/linyows/mailslot/Build?style=for-the-badge"></a>
 
 Usage
 --
@@ -61,6 +61,15 @@ if ($slot->sendHeader($_SERVER)->setData($data)->isValid()) {
 }
 
 return json_encode($res);
+```
+
+Installation
+--
+
+The recommended way to install Guzzle is through Composer.
+
+```sh
+$ composer require linyows/notionslot
 ```
 
 Configuration
