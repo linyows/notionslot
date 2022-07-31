@@ -60,7 +60,7 @@ if ($slot->sendHeader($_SERVER)->setData($data)->isValid()) {
     ];
 }
 
-return json_encode($res);
+echo json_encode($res);
 ```
 
 Installation
