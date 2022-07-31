@@ -50,4 +50,9 @@ class Wrapper
     {
         return json_encode($value, $flags, $depth);
     }
+
+    public static function http_response_code(int $response_code = 0): int|bool
+    {
+        return http_response_code($response_code);
+    }
 }

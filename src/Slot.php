@@ -28,6 +28,7 @@ class Slot
                 $logger($notionRes);
             }
         } else {
+            $wrapper::http_response_code(422);
             $res = [
                 'ok' => false,
                 'errors' => $slot->errors(),
