@@ -20,5 +20,10 @@
             "name": "linyows",
             "email": "linyows@gmail.com"
         }
-    ]
+    ],
+    "config": {
+        "platform": {
+            "php": "8.1"
+        }
+    }
 }
