@@ -14,7 +14,7 @@ use \Notionslot\ConfigMissingError;
 
 class Slot
 {
-    public static function api(array $config = [], array $server = [], array $data = [], $logger = null, $wrapper = Wrapper::class): array
+    public static function api(array $config = [], array $server = [], array $data = [], $logger = null, $wrapper = Wrapper::class): string|false
     {
         $res = [
             'ok' => true,
