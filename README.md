@@ -81,7 +81,7 @@ mail_from       | From header for SMTP
 mail_to_key     | A key that specifies an email address
 params          | See below
 
-Customization
+Custom
 --
 
 The default Notion databse property names are `Full name(title)`, `Email address(email)`, `IP(rich_text)`.
