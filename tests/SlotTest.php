@@ -1,7 +1,7 @@
 <?php
-use \Mailslot\Mailslot;
+use \Notionslot\Slot;
 
-class MailslotTest extends \PHPUnit\Framework\TestCase
+class SlotTest extends \PHPUnit\Framework\TestCase
 {
     private $conf = [
         'notion_token' => 'secret_**********************************',
@@ -27,20 +27,20 @@ class MailslotTest extends \PHPUnit\Framework\TestCase
 
     public function testConstructThrowsExceptionWhenAnyEmptyConfig()
     {
-        $this->expectException('Mailslot\ConfigMissingError');
-        $this->expectExceptionMessage('notion_token is required as mailslot config');
-        new Mailslot([]);
+        $this->expectException('Notionslot\ConfigMissingError');
+        $this->expectExceptionMessage('notion_token is required as notionslot config');
+        new Slot([]);
     }
 
     public function testIsValidWhenDataIsCorrect()
     {
-        $slot = new Mailslot($this->conf);
+        $slot = new Slot($this->conf);
         $this->assertTrue($slot->setData($this->data)->isValid());
     }
 
     public function testIsValidWhenDataIsNotCorrect()
     {
-        $slot = new Mailslot($this->conf);
+        $slot = new Slot($this->conf);
         $data = [
             'name' => '',
             'email' => '',
@@ -58,8 +58,8 @@ class MailslotTest extends \PHPUnit\Framework\TestCase
 
     public function testSendHeaderCallsPhpHeader()
     {
-        $wrapper = \Mockery::mock(\Mailslot\Wrapper::class);
-        $slot = new Mailslot($this->conf, $wrapper);
+        $wrapper = \Mockery::mock(\Notionslot\Wrapper::class);
+        $slot = new Slot($this->conf, $wrapper);
         $headers = [
             'Strict-Transport-Security: max-age=31536000; includeSubdomains; preload',
             'X-Frame-Options: DENY',
@@ -80,8 +80,8 @@ class MailslotTest extends \PHPUnit\Framework\TestCase
 
     public function testSendHeaderCallsPhpExitWhenHttpRequestIsGet()
     {
-        $wrapper = \Mockery::mock(\Mailslot\Wrapper::class);
-        $slot = new Mailslot($this->conf, $wrapper);
+        $wrapper = \Mockery::mock(\Notionslot\Wrapper::class);
+        $slot = new Slot($this->conf, $wrapper);
         $wrapper->shouldReceive('header')->with('Location: https://foo.example');
         $wrapper->shouldReceive('exit')->with(1);
         $this->assertNotNull($slot->sendHeader(['REQUEST_METHOD' => 'GET']));
@@ -89,8 +89,8 @@ class MailslotTest extends \PHPUnit\Framework\TestCase
 
     public function testNotifyCallsMbSendMail()
     {
-        $wrapper = \Mockery::mock(\Mailslot\Wrapper::class);
-        $slot = new Mailslot($this->conf, $wrapper);
+        $wrapper = \Mockery::mock(\Notionslot\Wrapper::class);
+        $slot = new Slot($this->conf, $wrapper);
         $slot->setData($this->data);
         $to = 'me@foo.example';
         $subject = 'Contact from foo.example';
@@ -120,8 +120,8 @@ EOL;
 
     public function testReplyCallsMbSendMail()
     {
-        $wrapper = \Mockery::mock(\Mailslot\Wrapper::class);
-        $slot = new Mailslot($this->conf, $wrapper);
+        $wrapper = \Mockery::mock(\Notionslot\Wrapper::class);
+        $slot = new Slot($this->conf, $wrapper);
         $slot->setData($this->data);
         $to = 'linyows@foo.example';
         $subject = 'Thanks for your message from foo.example';
@@ -151,8 +151,8 @@ EOL;
 
     public function testSaveCallsCurlMethods()
     {
-        $wrapper = \Mockery::mock(\Mailslot\Wrapper::class)->makePartial();
-        $slot = new Mailslot($this->conf, $wrapper);
+        $wrapper = \Mockery::mock(\Notionslot\Wrapper::class)->makePartial();
+        $slot = new Slot($this->conf, $wrapper);
         $slot->setData($this->data);
 
         $header = [
