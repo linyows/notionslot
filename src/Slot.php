@@ -1,17 +1,18 @@
 <?php
 /**
- * Mailslot
+ * Notionslot
  *
- * @category Mailslot
- * @package Mailslot
+ * @package Notionslot
  * @copyright  Copyright (c) 2022 Tomohisa Oda <linyows@gmail.com>
  * @license MIT
  */
 
-namespace Mailslot;
-use \Mailslot\ConfigMissingError;
+namespace Notionslot;
 
-class Mailslot
+use \Notionslot\Wrapper;
+use \Notionslot\ConfigMissingError;
+
+class Slot
 {
     public static function api(array $config = [], array $server = [], array $data = [], $logger = null, $wrapper = Wrapper::class): array
     {
@@ -20,7 +21,7 @@ class Mailslot
             'errors' => [],
         ];
 
-        $slot = new Mailslot($config, $wrapper);
+        $slot = new Slot($config, $wrapper);
         if ($slot->sendHeader($server)->setData($data)->isValid()) {
             $notionRes = $slot->notify()->reply()->save();
             if (!is_null($logger)) {
@@ -90,7 +91,7 @@ class Mailslot
     {
         foreach ($this->config as $k => $v) {
             if (empty($v)) {
-                throw new ConfigMissingError("{$k} is required as mailslot config");
+                throw new ConfigMissingError("{$k} is required as notionslot config");
             }
         }
     }

@@ -2,13 +2,12 @@
 /**
  * Wrapper
  *
- * @category Mailslot
- * @package Mailslot
+ * @package Notionslot
  * @copyright  Copyright (c) 2022 Tomohisa Oda <linyows@gmail.com>
  * @license MIT
  */
 
-namespace Mailslot;
+namespace Notionslot;
 
 class Wrapper
 {
