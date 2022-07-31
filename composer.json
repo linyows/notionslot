@@ -1,6 +1,6 @@
 {
-    "name": "linyows/mailslot",
-    "description": "Mailslot stores messages in database on Notion for email notifications.",
+    "name": "linyows/notionslot",
+    "description": "Notionslot stores messages in database on Notion for email notifications.",
     "type": "library",
     "require-dev": {
         "mockery/mockery": "^1.5",
@@ -12,7 +12,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Mailslot\\": "src/"
+            "Notionslot\\": "src/"
         }
     },
     "authors": [
