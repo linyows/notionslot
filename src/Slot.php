@@ -65,7 +65,7 @@ class Slot
             [
                 'key' => 'ip',
                 'required' => true,
-                'notion_name' => 'IP',
+                'notion_name' => 'IP address',
                 'notion_type' => 'rich_text'
             ],
             [

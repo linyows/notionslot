@@ -157,7 +157,7 @@ Full name:
   linyows
 Email address:
   linyows@foo.example
-IP:
+IP address:
   192.168.10.1
 Message:
   Yo!
@@ -174,7 +174,7 @@ Full name:
   linyows
 Email address:
   linyows@foo.example
-IP:
+IP address:
   192.168.10.1
 Message:
   Yo!
@@ -211,7 +211,7 @@ EOL;
             'Email address' => [
                 'email' => 'linyows@foo.example',
             ],
-            'IP' => [
+            'IP address' => [
                 'rich_text' => [
                     [
                         'type' => 'text',
