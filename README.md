@@ -1,7 +1,7 @@
 Notionslot
 ==
 
-<a href="https://github.com/linyows/mailslot/actions/workflows/build.yml"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/linyows/mailslot/Build?style=for-the-badge"></a>
+<a href="https://github.com/linyows/mailslot/actions/workflows/build.yml"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/linyows/notionslot/build.yml?branch=main&style=for-the-badge"></a>
 
 Notionslot stores messages in database on Notion for email notifications.
 It is supposed to be used in the contact form of web hosting.
